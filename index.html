@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>A* Pathfinder</title>
+		<meta charset="UTF-8">
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    	<script type="text/javascript" src="pathfinder.js"></script>
+    	<style>
+    		#form {
+    			width: 20%;
+    			text-align: center;
+    			margin-left: auto;
+    			margin-right: auto;
+    		}
+    		.grid {
+    			margin:1em auto;
+    			border: 5px solid black;
+    			border-collapse:collapse;
+    			width: 80%;
+    			height: 50%;
+    			table-layout: fixed;
+    		}
+			.grid td {
+			    cursor:pointer;
+			    width:20px; height:20px;
+			    border:1px solid #556270;
+			    text-align:center;
+			    font-family:sans-serif; font-size:13px
+			}
+			.grid td.wall {
+			    background-color: #556270;
+			    font-weight:bold; color:red;
+			}
+
+			.grid td.start-clicked {
+				background-color: #a6e87a;
+			}
+
+			.grid td.end-clicked {
+				background-color: #FF6B6B;
+			}
+
+			.grid td.path {
+				background-color: #ffff66;
+			}
+
+			.grid td.cloud {
+				background-color: #4ECDC4;
+			}
+    	</style>
+	</head>
+	<body>
+		<p style="text-align: center;">Use the 'Create New Map' button to create the map or to create a new one.<br />
+			Choose a start and end point using the radio buttons, select your path finding options, then click the 'Calculate Path' button to start the search.<br />
+			To clear the map, simply choose a new start or end point.</p>
+		<p style="text-align: center;">DISCLAIMER: Animated search displays animation at 50ms per search loop iteration.</p>
+		<div id="form">
+			<form>
+				Point: <input type="radio" name="pointStatus" id="startPoint" value="0" />Start Point
+					   <input type="radio" name="pointStatus" id="endPoint" value="1" />End Point<br />
+				<input id="world-button" type="button" value="Create New Map" />
+				<input id="astar-button" type="button" value="Calculate Path" /><br />
+				<input type="hidden" name="dynamic-weighting" value="0" />
+				<input id="dynamic-check" name="dynamic-weighting" type="checkbox" value="1" checked />Use Dynamic Weighting
+				<input type="hidden" name="animate" value="0" />
+				<input id="animate-check" name="animate" type="checkbox" value="1" checked />Animate Search
+			</form>
+		</div>
+			<div id="map">
+		</div>
+
+	</body>
+</html>
